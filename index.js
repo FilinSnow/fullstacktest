@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from "mongoose";
 import userRoutes from "./modules/routes/userRoutes.js";
 import postsRoutes from "./modules/routes/postsRoutes.js";
+import indexRoutes from "./modules/routes/indexRoutes.js";
 
 
 const app = express();
@@ -17,6 +18,7 @@ mongoose.connect(
     }
 );
 
+app.use('/', indexRoutes)
 app.use('/api/auth', userRoutes);
 app.use('/api/posts', postsRoutes);
 
